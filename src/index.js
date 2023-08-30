@@ -25,6 +25,8 @@ const App = async () => {
     clearTimeout(timerTimeout)
     DOM.outputTimer().innerHTML = '00:00'
 
+    DOM.connectButton().disabled = true
+
     // connect to all 50 WebTransport addresses
     await Promise.all(
       addresses.map(async url => {
@@ -32,7 +34,6 @@ const App = async () => {
         DOM.outputTotal().innerText = total
 
         const wt = new WebTransport(url)
-        const start = Date.now()
 
         try {
           await Promise.any([
@@ -63,6 +64,8 @@ const App = async () => {
         }
       })
     )
+
+    DOM.connectButton().disabled = undefined
 
     // show a timer for five minutes
     let waitTime = 5 * 60
