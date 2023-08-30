@@ -19,8 +19,9 @@
     <p>We expect these connections to fail.</p>
     <p>In the list of errors that will appear below:
         <ul>
-          <li>"Opening handshake failed." means we connected but could not verify the remote's certificate because it it self-signed</li>
+          <li>"Opening handshake failed." means we connected successfully but could not verify the remote's certificate because it it self-signed</li>
           <li>"close() is called while connecting." means we took longer than 5s to connect so we closed the session</li>
+          <li>"Connection lost." usually means Chrome has too many session in the "pending" state and is refusing to open new sessions</li>
         </ul>
       </p>
     <ul>
