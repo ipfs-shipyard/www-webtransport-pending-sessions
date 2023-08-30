@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dial WebTransport addresses</title>
+    <script type="module" defer src="./index.js"></script>
+  </head>
+  <body>
+    <h1>WebTransport "pending" sessions</h1>
+    <p>Demonstrates errored WebTransport sessions never leaving the "pending" state, even after <a href="https://docs.google.com/document/d/1u2kcv3YjvxMc91xylGAyhP1UhxAr2ZobgvCaL37AOUM">five minutes</a>.</p>
+
+    <h2>Step 1</h2>
+    <p>Open the developer console</p>
+
+    <h2>Step 2</h2>
+    <p>Open 50 WebTransport sessions to unresponsive or bad peers.</p>
+    <p>We expect these connections to fail.</p>
+    <p>In the list of errors that will appear below:
+        <ul>
+          <li>"Opening handshake failed." means we connected but could not verify the remote's certificate because it it self-signed</li>
+          <li>"close() is called while connecting." means we took longer than 5s to connect so we closed the session</li>
+        </ul>
+      </p>
+    <button id="connect-button">Connect</button>
+    <ul>
+      <li>Total: <span id="output-total">0</span></li>
+      <li>Success: <span id="output-success">0</span></li>
+      <li>Error: <span id="output-error">0</span><ul id="output-errors"></ul></li>
+
+    </ul>
+
+    <h2>Step 3</h2>
+    <p>Wait for the countdown to end: <span id="time" style="font-size: 2em">00:00</span></p>
+
+    <h2>Step 4</h2>
+    <p>Go back to step 2</p>
+    <p>After attempting to connect to another 50 peers you <strong>should not</strong> see a warning in the console about "Too many pending WebTransport sessions (64)"</p>
+    <p>If you do, errored WebTransport sessions are not leaving the "pending" state.</p>
+  </body>
+</html>

@@ -1,0 +1,25 @@
+{
+  "name": "www-webtransport-pending-sessions",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Errored WebTransport should not be pending",
+  "license": "ISC",
+  "scripts": {
+    "clean": "rimraf ./dist",
+    "build": "mkdir -p dist && cp src/index.html src/index.js dist",
+    "start": "npm run build && esbuild --servedir=dist"
+  },
+  "browserslist": "last 1 Chrome version",
+  "devDependencies": {
+    "aegir": "^40.0.11",
+    "esbuild": "^0.17.16",
+    "rimraf": "^5.0.0"
+  },
+  "eslintConfig": {
+    "extends": "ipfs",
+    "parserOptions": {
+      "sourceType": "module"
+    }
+  }
+}
