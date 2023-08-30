@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Dial WebTransport addresses</title>
+    <title>Errored WebTransport should not be pending</title>
     <script type="module" defer src="./index.js"></script>
   </head>
   <body>
@@ -37,5 +37,8 @@
     <p>Go back to step 2</p>
     <p>After attempting to connect to another 50 peers you <strong>should not</strong> see a warning in the console about "Too many pending WebTransport sessions (64)"</p>
     <p>If you do, errored WebTransport sessions are not leaving the "pending" state.</p>
+
+    <hr>
+    <p>The source code for this page can be found at <a href="https://github.com/ipfs-shipyard/www-webtransport-pending-sessions">ipfs-shipyard/www-webtransport-pending-sessions</a></p>
   </body>
 </html>
