@@ -15,7 +15,7 @@
     <p>Open the developer console</p>
 
     <h2>Step 2</h2>
-    <p>Open 50 WebTransport sessions to unresponsive or bad peers.</p>
+    <p>Open 50 WebTransport sessions to unresponsive or bad peers by clicking <button id="connect-button">Connect</button></p>
     <p>We expect these connections to fail.</p>
     <p>In the list of errors that will appear below:
         <ul>
@@ -23,7 +23,6 @@
           <li>"close() is called while connecting." means we took longer than 5s to connect so we closed the session</li>
         </ul>
       </p>
-    <button id="connect-button">Connect</button>
     <ul>
       <li>Total: <span id="output-total">0</span></li>
       <li>Success: <span id="output-success">0</span></li>
